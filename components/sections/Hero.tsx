@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import gsap from "gsap";
 import Button from "@/components/ui/Button";
 
@@ -38,18 +37,28 @@ export default function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-blacklynx-border px-6 pt-20"
     >
       <HeroParticles />
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `
+        linear-gradient(#00F5FF 1px, transparent 1px),
+        linear-gradient(90deg, #00F5FF 1px, transparent 1px)
+      `,
+            backgroundSize: "40px 40px"
+          }}
+        />
+      </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-[22%] mx-auto h-72 w-72 bg-[radial-gradient(circle,rgba(0,245,255,0.18)_0%,rgba(0,245,255,0)_68%)] opacity-80" />
 
       <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
-        <div className="hero-reveal cyan-glow mb-8">
-          <Image
+        <div className="hero-reveal relative flex items-center justify-center mb-10">
+          <div className="absolute h-[220px] w-[220px] rounded-full bg-[#00F5FF]/10 blur-3xl"></div>
+          <img
             src="/logo.png"
-            alt="BlackLynx"
-            width={120}
-            height={120}
-            className="h-[120px] w-auto"
-            priority
+            alt="BlackLynx Logo"
+            className="relative z-10 w-[120px] h-auto"
           />
         </div>
         <h1 className="hero-reveal mt-8 heading-tight max-w-[980px] text-[58px] text-blacklynx-text md:text-[96px]">

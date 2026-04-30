@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence, motion } from "framer-motion";
@@ -54,7 +53,7 @@ export default function Nav() {
     >
       <nav className="mx-auto grid h-20 w-full max-w-[1280px] grid-cols-[auto_1fr_auto] items-center px-6">
         <a href="#hero" className="flex items-center mr-6">
-          <Image src="/logo.png" alt="BlackLynx" width={32} height={32} className="h-8 w-auto" priority />
+          <img src="/logo.png" alt="BlackLynx" className="h-8 w-auto" />
         </a>
 
         <div className="hidden items-center justify-center gap-6 text-[18px] font-semibold text-blacklynx-muted md:flex">
