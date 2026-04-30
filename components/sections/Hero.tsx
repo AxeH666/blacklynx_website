@@ -34,43 +34,48 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-blacklynx-border px-6 pt-20"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden border-b border-blacklynx-border px-6"
     >
       <HeroParticles />
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[clamp(420px,65vw,800px)] h-[clamp(420px,65vw,800px)] bg-[#00F5FF]/5 blur-[180px] rounded-full" />
+      </div>
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
         linear-gradient(#00F5FF 1px, transparent 1px),
         linear-gradient(90deg, #00F5FF 1px, transparent 1px)
       `,
-            backgroundSize: "40px 40px"
+            backgroundSize: "60px 60px"
           }}
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-[22%] mx-auto h-72 w-72 bg-[radial-gradient(circle,rgba(0,245,255,0.18)_0%,rgba(0,245,255,0)_68%)] opacity-80" />
-
       <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
-        <div className="hero-reveal relative flex items-center justify-center mb-10">
-          <div className="absolute h-[220px] w-[220px] rounded-full bg-[#00F5FF]/10 blur-3xl"></div>
+        <div className="hero-reveal relative flex justify-center items-center mb-8">
+          <div className="absolute w-[clamp(200px,25vw,320px)] h-[clamp(200px,25vw,320px)] bg-[#00F5FF]/10 blur-[120px] rounded-full" />
           <img
             src="/logo.png"
             alt="BlackLynx Logo"
-            className="relative z-10 w-[120px] h-auto"
+            className="relative z-10 w-[clamp(80px,8vw,140px)] h-auto object-contain"
           />
         </div>
-        <h1 className="hero-reveal mt-8 heading-tight max-w-[980px] text-[58px] text-blacklynx-text md:text-[96px]">
+        <h1
+          className="hero-reveal text-[clamp(36px,6vw,96px)] leading-[1.05] tracking-[-0.02em] font-bold text-[#F5F5F5] max-w-[1100px]"
+        >
           Hunt the bug before it hunts you.
         </h1>
-        <p className="hero-reveal mt-7 max-w-[600px] text-lg leading-8 text-blacklynx-muted md:text-2xl md:leading-9">
+        <p className="hero-reveal mt-6 text-[clamp(16px,1.5vw,22px)] text-[#6B7280] max-w-[600px] leading-relaxed">
           OpenForge detects bugs and security vulnerabilities before your users
           do. Every language. Every framework. Under 30 seconds.
         </p>
-        <div className="hero-reveal mt-10 flex flex-col gap-4 sm:flex-row">
-          <Button href="#early-access">Request Early Access</Button>
-          <Button href="#how-it-works" variant="ghost">
+        <div className="hero-reveal flex gap-4 mt-10 flex-wrap justify-center">
+          <Button href="#early-access" className="hover:bg-[#00d9e6]">
+            Request Early Access
+          </Button>
+          <Button href="#how-it-works" variant="ghost" className="hover:bg-[#00d9e6]">
             See How It Works
           </Button>
         </div>
