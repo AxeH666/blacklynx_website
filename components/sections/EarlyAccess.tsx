@@ -19,18 +19,9 @@ export default function EarlyAccess() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
-
-      const data = (await response.json()) as { success?: boolean; error?: string };
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || "Something went wrong");
-      }
+      const subject = encodeURIComponent("Early Access Request");
+      const body = encodeURIComponent(`Please add this email to early access:\n\n${email}`);
+      window.location.href = `mailto:mohi@blacklynx.dev?subject=${subject}&body=${body}`;
 
       setStatus("success");
       setEmail("");
