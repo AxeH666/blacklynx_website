@@ -6,9 +6,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import Button from "@/components/ui/Button";
 
-const HeroField3D = dynamic(() => import("@/components/ui/HeroField3D"), {
-  ssr: false
-});
 const HeroParticles = dynamic(() => import("@/components/ui/HeroParticles"), {
   ssr: false
 });
@@ -41,7 +38,6 @@ export default function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-blacklynx-border px-6 pt-20"
     >
       <HeroParticles />
-      <HeroField3D />
 
       <div className="pointer-events-none absolute inset-x-0 top-[22%] mx-auto h-72 w-72 bg-[radial-gradient(circle,rgba(0,245,255,0.18)_0%,rgba(0,245,255,0)_68%)] opacity-80" />
 
