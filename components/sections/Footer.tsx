@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const links = [
   { label: "Product", href: "#product" },
   {
@@ -13,7 +15,7 @@ export default function Footer() {
     <footer className="border-t border-blacklynx-border px-6 py-8">
       <div className="mx-auto grid max-w-[1180px] gap-6 text-sm text-blacklynx-muted md:grid-cols-[1fr_auto_1fr] md:items-center">
         <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="BlackLynx" className="h-6 w-auto" />
+          <Image src="/logo.png" alt="BlackLynx" width={96} height={32} className="h-6 w-auto" />
           <span>© 2026 BlackLynx Technologies</span>
         </div>
         <div className="flex gap-6">

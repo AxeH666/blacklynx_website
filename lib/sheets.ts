@@ -1,30 +1,23 @@
-export type WaitlistPayload = {
-  email: string;
-};
-
 export type WaitlistResponse = {
   ok: boolean;
 };
 
-const GOOGLE_APPS_SCRIPT_URL = "";
+export async function submitWaitlistEmail(payload: {
+  email: string;
+  timestamp: string;
+}): Promise<WaitlistResponse> {
+  const appsScriptUrl = process.env.WAITLIST_GOOGLE_APPS_SCRIPT_URL;
 
-export async function submitWaitlistEmail({
-  email
-}: WaitlistPayload): Promise<WaitlistResponse> {
-  if (!GOOGLE_APPS_SCRIPT_URL) {
-    throw new Error("Google Apps Script URL is not configured.");
+  if (!appsScriptUrl) {
+    throw new Error("WAITLIST_GOOGLE_APPS_SCRIPT_URL is not configured.");
   }
 
-  // TODO: Replace GOOGLE_APPS_SCRIPT_URL with actual deployed script URL
-  const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+  const response = await fetch(appsScriptUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      timestamp: new Date().toISOString(),
-      email
-    })
+    body: JSON.stringify(payload)
   });
 
   if (!response.ok) {

@@ -19,9 +19,18 @@ export default function EarlyAccess() {
     setErrorMessage("");
 
     try {
-      const subject = encodeURIComponent("Early Access Request");
-      const body = encodeURIComponent(`Please add this email to early access:\n\n${email}`);
-      window.location.href = `mailto:mohi@blacklynx.dev?subject=${subject}&body=${body}`;
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (!response.ok) {
+        const data = (await response.json()) as { error?: string };
+        throw new Error(data.error ?? "Waitlist submission failed.");
+      }
 
       setStatus("success");
       setEmail("");

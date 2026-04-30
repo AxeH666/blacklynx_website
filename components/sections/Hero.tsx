@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import gsap from "gsap";
 import Button from "@/components/ui/Button";
 
@@ -56,9 +57,11 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex max-w-[1100px] flex-col items-center text-center">
         <div className="hero-reveal relative flex justify-center items-center mb-8">
           <div className="absolute w-[clamp(200px,25vw,320px)] h-[clamp(200px,25vw,320px)] bg-[#00F5FF]/10 blur-[120px] rounded-full" />
-          <img
+          <Image
             src="/logo.png"
             alt="BlackLynx Logo"
+            width={140}
+            height={140}
             className="relative z-10 w-[clamp(80px,8vw,140px)] h-auto object-contain"
           />
         </div>
