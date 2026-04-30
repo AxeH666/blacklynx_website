@@ -1,23 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import type { ISourceOptions } from "@tsparticles/engine";
 import gsap from "gsap";
 import Button from "@/components/ui/Button";
-import HeroField3D from "@/components/ui/HeroField3D";
+
+const HeroField3D = dynamic(() => import("@/components/ui/HeroField3D"), {
+  ssr: false
+});
+const HeroParticles = dynamic(() => import("@/components/ui/HeroParticles"), {
+  ssr: false
+});
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const [particlesReady, setParticlesReady] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setParticlesReady(true));
-  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,83 +34,13 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const particleOptions = useMemo<ISourceOptions>(
-    () => ({
-      background: {
-        color: "#000000"
-      },
-      detectRetina: true,
-      fpsLimit: 60,
-      fullScreen: {
-        enable: false
-      },
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            width: 1200,
-            height: 800
-          }
-        },
-        color: {
-          value: "#00F5FF"
-        },
-        opacity: {
-          value: 0.2
-        },
-        size: {
-          value: { min: 1, max: 2.2 }
-        },
-        links: {
-          enable: true,
-          distance: 150,
-          color: "#00F5FF",
-          opacity: 0.05,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 0.45,
-          outModes: {
-            default: "bounce"
-          }
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "repulse"
-          },
-          resize: {
-            enable: true
-          }
-        },
-        modes: {
-          repulse: {
-            distance: 120,
-            duration: 0.35
-          }
-        }
-      }
-    }),
-    []
-  );
-
   return (
     <section
       id="hero"
       ref={heroRef}
       className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-blacklynx-border px-6 pt-20"
     >
-      {particlesReady ? (
-        <Particles
-          id="blacklynx-particles"
-          options={particleOptions}
-          className="absolute inset-0"
-        />
-      ) : null}
+      <HeroParticles />
       <HeroField3D />
 
       <div className="pointer-events-none absolute inset-x-0 top-[22%] mx-auto h-72 w-72 bg-[radial-gradient(circle,rgba(0,245,255,0.18)_0%,rgba(0,245,255,0)_68%)] opacity-80" />

@@ -1,3 +1,5 @@
+"use client";
+
 import Terminal from "@/components/ui/Terminal";
 
 const features = [

@@ -1,3 +1,5 @@
+"use client";
+
 const phases = [
   {
     eyebrow: "LIVE NOW",
