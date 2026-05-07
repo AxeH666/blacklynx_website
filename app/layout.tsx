@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,26 +8,28 @@ const inter = Inter({
   display: "swap"
 });
 
-const spaceGrotesk = Space_Grotesk({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-geist-mono",
   display: "swap"
 });
 
 export const metadata: Metadata = {
-  title: "BlackLynx | OpenForge",
+  title: "Strike — Blackkrait Technologies",
   description:
-    "OpenForge is a self-hosted AI debugging assistant from BlackLynx for serious Python and Django teams.",
-  metadataBase: new URL("https://blacklynx.dev")
+    "Stack trace in. Verified root cause + fix out. Under 5 seconds. Code never leaves India.",
+  icons: {
+    icon: "/images/logo-head.png"
+  }
 };
 
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): JSX.Element {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   );

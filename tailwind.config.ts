@@ -8,18 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blacklynx: {
-          bg: "#000000",
-          surface: "#0A0A0A",
-          accent: "#00F5FF",
+        strike: {
+          bg: "#080808",
+          text: "#F0F0F0",
+          accent: "#C8102E",
+          dim: "#7A0A1A",
           border: "#1A1A1A",
-          text: "#F5F5F5",
-          muted: "#6B7280"
+          mid: "#2A2A2A",
+          muted: "#555555"
         }
       },
       fontFamily: {
-        heading: ["var(--font-space-grotesk)", "sans-serif"],
-        body: ["var(--font-inter)", "sans-serif"]
+        sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"]
       }
     }
   },
