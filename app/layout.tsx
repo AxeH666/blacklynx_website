@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Stack trace in. Verified root cause + fix out. Under 5 seconds. Code never leaves India.",
   icons: {
-    icon: "/images/logo-head.png"
+    icon: "./images/logo-head.png"
   }
 };
 

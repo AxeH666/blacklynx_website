@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
         <div className="grid h-full w-full grid-cols-[1fr_auto_1fr] items-center px-20">
           <Link href="/" className="justify-self-start flex items-center gap-3">
             <Image
-              src="/images/logo-head.png"
+              src="./images/logo-head.png"
               alt="Strike logo"
               width={50}
               height={36}
