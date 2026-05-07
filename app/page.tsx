@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import StrikeDemo from "@/components/StrikeDemo";
 
@@ -10,12 +9,10 @@ export default function Home(): JSX.Element {
       <header className="sticky top-0 z-50 h-[72px] bg-transparent">
         <div className="grid h-full w-full grid-cols-[1fr_auto_1fr] items-center px-20">
           <Link href="/" className="justify-self-start flex items-center gap-3">
-            <Image
+            <img
               src="/images/logo-head.png"
               alt="Strike logo"
-              width={50}
-              height={36}
-              className="h-9 w-auto object-contain"
+              style={{ height: "36px", width: "auto" }}
             />
             <p className="text-[25px] font-extrabold tracking-[0.18em]">STRIKE</p>
           </Link>
