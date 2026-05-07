@@ -6,3 +6,4 @@ out/
 *.tsbuildinfo
 .test-dist/
 .next/cache
+.next/

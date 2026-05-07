@@ -3,5 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
+  experimental: {
+    webpackBuildWorker: false,
+  },
 };
 export default nextConfig;
