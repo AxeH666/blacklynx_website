@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap"
 });
 
@@ -15,21 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Strike — Blackkrait Technologies",
-  description:
-    "Stack trace in. Verified root cause + fix out. Under 5 seconds. Code never leaves India.",
-  icons: {
-    icon: "./images/logo-head.png"
-  }
+  title: "Jericho",
+  description: "Finds the exact bug. Proves it. Fixes it."
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
-}>): JSX.Element {
+}>): React.JSX.Element {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   );

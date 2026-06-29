@@ -1,123 +1,81 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatePresence, motion } from "framer-motion";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import CTA from "@/components/ui/CTA";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const links = [
-  { label: "Product", href: "#product" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Vision", href: "#vision" },
-  {
-    label: "GitHub",
-    href: "https://github.com/AxeH666/openforge",
-    external: true
-  }
+const navLinks: { label: string; href: string }[] = [
+  { label: "Home", href: "/" },
+  { label: "Debugging", href: "/debugging" },
+  { label: "Security", href: "/security" },
+  { label: "Self-hosted", href: "/self-hosted" },
+  { label: "Pricing", href: "/pricing" }
 ];
 
-export default function Nav() {
-  const navRef = useRef<HTMLElement>(null);
-  const [open, setOpen] = useState(false);
+function normalizePath(path: string): string {
+  if (!path || path === "/") {
+    return "/";
+  }
+  return path.endsWith("/") ? path.slice(0, -1) : path;
+}
 
-  useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
+function isActive(pathname: string, href: string): boolean {
+  const current = normalizePath(pathname);
+  const target = normalizePath(href);
 
-    let lastScroll = window.scrollY;
-    const trigger = ScrollTrigger.create({
-      start: 0,
-      end: "max",
-      onUpdate: () => {
-        const current = window.scrollY;
-        gsap.to(nav, {
-          y: current > lastScroll && current > 80 ? -88 : 0,
-          duration: 0.28,
-          ease: "power2.out",
-          overwrite: true
-        });
-        lastScroll = current;
-      }
-    });
+  if (target === "/") {
+    return current === "/";
+  }
 
-    return () => trigger.kill();
-  }, []);
+  return current === target || current.startsWith(`${target}/`);
+}
+
+export default function Nav(): React.JSX.Element {
+  const pathname = usePathname();
 
   return (
-    <header
-      ref={navRef}
-      className="fixed inset-x-0 top-0 z-50 border-b border-blacklynx-border bg-blacklynx-bg/85 backdrop-blur-xl"
-    >
-      <nav className="mx-auto grid h-20 w-full max-w-[1280px] grid-cols-[auto_1fr_auto] items-center px-6">
-        <a href="#hero" className="flex items-center mr-6">
-          <Image src="/logo.png" alt="BlackLynx" width={128} height={48} className="h-8 w-auto" />
-        </a>
-
-        <div className="hidden items-center justify-center gap-6 text-[18px] font-semibold text-blacklynx-muted md:flex">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noreferrer" : undefined}
-              className="transition-colors hover:text-blacklynx-text"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="hidden justify-end md:flex">
-          <Button href="#early-access" className="h-11 px-5">
-            Request Access
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="col-start-3 ml-auto flex h-10 w-10 flex-col items-center justify-center gap-1.5 border border-blacklynx-border md:hidden"
-        >
-          <span className="h-px w-5 bg-blacklynx-text" />
-          <span className="h-px w-5 bg-blacklynx-text" />
-          <span className="h-px w-5 bg-blacklynx-text" />
-        </button>
-      </nav>
-
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18 }}
-            className="border-t border-blacklynx-border bg-blacklynx-bg px-6 py-5 md:hidden"
+    <header className="sticky top-0 z-50 border-b border-raised bg-canvas">
+      <nav className="mx-auto flex max-w-6xl flex-col gap-space-4 px-space-6 py-space-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center justify-between md:contents">
+          <Link
+            href="/"
+            className="font-display font-medium tracking-wide text-text md:order-1"
           >
-            <div className="flex flex-col gap-5 text-[18px] font-semibold text-blacklynx-muted">
-              {links.map((link) => (
-                <a
-                  key={link.label}
+            JERICHO
+          </Link>
+
+          <CTA
+            variant="primary"
+            href="/waitlist"
+            size="compact"
+            className="shrink-0 md:order-3"
+          >
+            Request access
+          </CTA>
+        </div>
+
+        <ul className="flex items-center gap-space-6 overflow-x-auto md:order-2 md:flex-1 md:justify-center md:overflow-visible lg:justify-start lg:pl-space-8">
+          {navLinks.map((link) => {
+            const active = isActive(pathname, link.href);
+            return (
+              <li key={link.href} className="shrink-0">
+                <Link
                   href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noreferrer" : undefined}
-                  onClick={() => setOpen(false)}
+                  scroll
+                  aria-current={active ? "page" : undefined}
+                  className={`whitespace-nowrap border-b font-display text-sm text-text transition-opacity md:text-base ${
+                    active
+                      ? "border-text opacity-100"
+                      : "border-transparent opacity-70 hover:opacity-100"
+                  }`}
                 >
                   {link.label}
-                </a>
-              ))}
-              <Button href="#early-access" onClick={() => setOpen(false)}>
-                Request Access
-              </Button>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }
