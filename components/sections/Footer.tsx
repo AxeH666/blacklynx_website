@@ -1,37 +1,56 @@
-import Image from "next/image";
+import Link from "next/link";
 
-const links = [
-  { label: "Product", href: "#product" },
-  {
-    label: "GitHub",
-    href: "https://github.com/AxeH666/openforge",
-    external: true
-  },
-  { label: "mohi@blacklynx.dev", href: "mailto:mohi@blacklynx.dev" }
+const routeLinks: { label: string; href: string }[] = [
+  { label: "Debugging", href: "/debugging" },
+  { label: "Security", href: "/security" },
+  { label: "Self-hosted", href: "/self-hosted" },
+  { label: "Pricing", href: "/pricing" }
 ];
 
-export default function Footer() {
+const externalLinks: { label: string; href: string }[] = [
+  { label: "Contact", href: "mailto:contact@blackkrait.com" },
+  { label: "GitHub", href: "https://github.com" }
+];
+
+export default function Footer(): React.JSX.Element {
   return (
-    <footer className="border-t border-blacklynx-border px-6 py-8">
-      <div className="mx-auto grid max-w-[1180px] gap-6 text-sm text-blacklynx-muted md:grid-cols-[1fr_auto_1fr] md:items-center">
-        <div className="flex items-center gap-3">
-          <Image src="/logo.png" alt="BlackLynx" width={96} height={32} className="h-6 w-auto" />
-          <span>© 2026 BlackLynx Technologies</span>
+    <footer className="border-t border-raised">
+      <div className="mx-auto max-w-6xl px-space-6 py-space-16">
+        <div className="flex flex-wrap items-center justify-between gap-space-6">
+          <Link
+            href="/"
+            className="font-display font-medium tracking-wide text-text"
+          >
+            JERICHO
+          </Link>
+
+          <nav className="flex flex-wrap items-center gap-space-8">
+            {routeLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-display text-text opacity-70 transition-opacity hover:opacity-100"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {externalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                className="font-display text-text opacity-70 transition-opacity hover:opacity-100"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
-        <div className="flex gap-6">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noreferrer" : undefined}
-              className="transition-colors hover:text-blacklynx-text"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-        <p className="md:text-right">Built in India. Trusted everywhere.</p>
+
+        <p className="mt-space-12 font-mono text-text opacity-50">
+          © 2026 Blackkrait Technologies
+        </p>
       </div>
     </footer>
   );
