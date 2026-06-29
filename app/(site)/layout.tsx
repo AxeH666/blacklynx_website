@@ -11,8 +11,8 @@ export default function SiteLayout({
     <>
       <ScrollToTop />
       <Nav />
-      <main>{children}</main>
-      <Footer />
+      <main className="relative z-[1]">{children}</main>
+      <Footer className="relative z-[1]" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const steps: { index: string; title: string; tech: string }[] = [
@@ -29,14 +30,16 @@ const steps: { index: string; title: string; tech: string }[] = [
 export default function Pipeline(): React.JSX.Element {
   return (
     <Section id="pipeline" className="pt-space-0 pb-space-16">
-      <Eyebrow>Debugging pipeline</Eyebrow>
-      <DisplayHeading measure="max-w-[22ch]" className="mt-space-4">
-        From stack trace to proven fix
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Debugging pipeline</Eyebrow>
+        <DisplayHeading measure="max-w-[22ch]" className="mt-space-4">
+          From stack trace to proven fix
+        </DisplayHeading>
+      </Reveal>
 
       <ol className="mt-space-6">
         {steps.map((step, i) => (
-          <li key={step.index}>
+          <Reveal key={step.index} as="li" staggerIndex={i}>
             {i > 0 ? <Divider etched className="my-space-4" /> : null}
             <div className="grid gap-space-3 py-space-4 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-space-8">
               <span className="font-mono text-sm tabular-nums tracking-[0.05em] text-text-muted">
@@ -49,7 +52,7 @@ export default function Pipeline(): React.JSX.Element {
                 {step.tech}
               </code>
             </div>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </Section>

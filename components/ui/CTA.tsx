@@ -16,6 +16,7 @@ type CTAProps = {
   children: React.ReactNode;
   className?: string;
   size?: Size;
+  disabled?: boolean;
 };
 
 const variantClass: Record<Variant, string> = {
@@ -28,7 +29,8 @@ export default function CTA({
   href,
   children,
   className = "",
-  size = "default"
+  size = "default",
+  disabled = false
 }: CTAProps): React.JSX.Element {
   const classes = [
     variantClass[variant],
@@ -37,6 +39,14 @@ export default function CTA({
   ]
     .filter(Boolean)
     .join(" ");
+
+  if (disabled) {
+    return (
+      <span className={classes} aria-disabled="true" role="link">
+        {children}
+      </span>
+    );
+  }
 
   // Internal navigation uses next/link; hashes, mailto, and external use <a>.
   if (href.startsWith("/")) {

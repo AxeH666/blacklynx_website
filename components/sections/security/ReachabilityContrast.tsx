@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const states: {
@@ -26,22 +27,24 @@ const states: {
 export default function ReachabilityContrast(): React.JSX.Element {
   return (
     <Section id="reachability" className="pt-space-0 pb-space-16">
-      <Eyebrow>Reachability model</Eyebrow>
-      <DisplayHeading measure="max-w-[18ch]" className="mt-space-4">
-        Reachable beats present
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Reachability model</Eyebrow>
+        <DisplayHeading measure="max-w-[18ch]" className="mt-space-4">
+          Reachable beats present
+        </DisplayHeading>
 
-      <p className="mt-space-6 max-w-[60ch] text-pretty text-lg font-normal text-text-secondary">
-        Most tools flag every advisory in your lockfile. Jericho separates
-        vulnerabilities that exist from vulnerabilities your code can actually
-        reach.
-      </p>
+        <p className="mt-space-6 max-w-[60ch] text-pretty text-lg font-normal text-text-secondary">
+          Most tools flag every advisory in your lockfile. Jericho separates
+          vulnerabilities that exist from vulnerabilities your code can actually
+          reach.
+        </p>
+      </Reveal>
 
       <div className="mt-space-8 border-l border-border pl-space-8 md:pl-space-12">
         <div className="grid gap-space-6 md:grid-cols-2 md:items-stretch">
-          {states.map((state) => (
+          {states.map((state, index) => (
+            <Reveal key={state.label} staggerIndex={index} className="h-full">
             <Card
-              key={state.label}
               interactive
               padding="space-12"
               className="flex h-full flex-col"
@@ -60,6 +63,7 @@ export default function ReachabilityContrast(): React.JSX.Element {
                 {state.body}
               </p>
             </Card>
+            </Reveal>
           ))}
         </div>
       </div>

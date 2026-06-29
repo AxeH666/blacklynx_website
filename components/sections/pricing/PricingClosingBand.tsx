@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import CTA from "@/components/ui/CTA";
 import Divider from "@/components/ui/Divider";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 export default function PricingClosingBand(): React.JSX.Element {
@@ -8,6 +9,7 @@ export default function PricingClosingBand(): React.JSX.Element {
     <Section className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-12" />
 
+      <Reveal>
       <div className="border-l border-border pl-space-8 md:pl-space-12">
         <DisplayHeading measure="max-w-[22ch]">
           Start with the tier that fits.
@@ -22,6 +24,7 @@ export default function PricingClosingBand(): React.JSX.Element {
           </CTA>
         </div>
       </div>
+      </Reveal>
     </Section>
   );
 }

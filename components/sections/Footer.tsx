@@ -12,9 +12,13 @@ const externalLinks: { label: string; href: string }[] = [
   { label: "GitHub", href: "https://github.com" }
 ];
 
-export default function Footer(): React.JSX.Element {
+export default function Footer({
+  className = ""
+}: {
+  className?: string;
+}): React.JSX.Element {
   return (
-    <footer className="border-t border-raised">
+    <footer className={["border-t border-raised", className].filter(Boolean).join(" ")}>
       <div className="mx-auto max-w-6xl px-space-6 py-space-16">
         <div className="flex flex-wrap items-center justify-between gap-space-6">
           <Link

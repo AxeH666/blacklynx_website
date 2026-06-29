@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const included: { index: string; mono: string; title: string; body: string }[] = [
@@ -30,20 +31,22 @@ export default function WhatsIncluded(): React.JSX.Element {
     <Section className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-12" />
 
-      <Eyebrow>Deployment scope</Eyebrow>
-      <DisplayHeading measure="max-w-[18ch]" className="mt-space-4">
-        What&apos;s included
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Deployment scope</Eyebrow>
+        <DisplayHeading measure="max-w-[18ch]" className="mt-space-4">
+          What&apos;s included
+        </DisplayHeading>
 
-      <p className="mt-space-6 max-w-[60ch] text-pretty text-base font-normal text-text-secondary">
-        Everything required to run Jericho on infrastructure you own — no cloud
-        dependency in self-hosted mode.
-      </p>
+        <p className="mt-space-6 max-w-[60ch] text-pretty text-base font-normal text-text-secondary">
+          Everything required to run Jericho on infrastructure you own — no cloud
+          dependency in self-hosted mode.
+        </p>
+      </Reveal>
 
-      <dl className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
-        {included.map((item) => (
+      <div className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
+        {included.map((item, index) => (
+          <Reveal key={item.title} staggerIndex={index} className="h-full">
           <Card
-            key={item.title}
             interactive
             padding="space-8"
             className="flex h-full flex-col"
@@ -61,8 +64,9 @@ export default function WhatsIncluded(): React.JSX.Element {
               {item.body}
             </dd>
           </Card>
+          </Reveal>
         ))}
-      </dl>
+      </div>
     </Section>
   );
 }

@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const modes: {
@@ -29,22 +30,24 @@ export default function DeploymentContrast(): React.JSX.Element {
     <Section id="contrast" className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-12" />
 
-      <Eyebrow>Deployment model</Eyebrow>
-      <DisplayHeading measure="max-w-[28ch]" className="mt-space-4">
-        Hosted vs self-hosted — the honest version
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Deployment model</Eyebrow>
+        <DisplayHeading measure="max-w-[28ch]" className="mt-space-4">
+          Hosted vs self-hosted — the honest version
+        </DisplayHeading>
 
-      <p className="mt-space-6 max-w-[60ch] text-pretty text-lg font-normal text-text-secondary">
-        Both are legitimate. Hosted optimizes for speed and simplicity; self-hosted
-        optimizes for control and isolation. Pick based on your constraints, not
-        marketing.
-      </p>
+        <p className="mt-space-6 max-w-[60ch] text-pretty text-lg font-normal text-text-secondary">
+          Both are legitimate. Hosted optimizes for speed and simplicity; self-hosted
+          optimizes for control and isolation. Pick based on your constraints, not
+          marketing.
+        </p>
+      </Reveal>
 
       <div className="mt-space-8 border-l border-border pl-space-8 md:pl-space-12">
         <div className="grid gap-space-6 md:grid-cols-2 md:items-stretch">
-          {modes.map((mode) => (
+          {modes.map((mode, index) => (
+            <Reveal key={mode.label} staggerIndex={index} className="h-full">
             <Card
-              key={mode.label}
               interactive
               padding="space-12"
               className="flex h-full flex-col"
@@ -63,6 +66,7 @@ export default function DeploymentContrast(): React.JSX.Element {
                 {mode.body}
               </p>
             </Card>
+            </Reveal>
           ))}
         </div>
       </div>

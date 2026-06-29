@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const audiences: { index: string; mono: string; title: string; body: string }[] = [
@@ -27,15 +28,17 @@ const audiences: { index: string; mono: string; title: string; body: string }[] 
 export default function WhoItsFor(): React.JSX.Element {
   return (
     <Section className="pt-space-0 pb-space-16">
-      <Eyebrow>Audience</Eyebrow>
-      <DisplayHeading measure="max-w-[16ch]" className="mt-space-4">
-        Who it&apos;s for
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Audience</Eyebrow>
+        <DisplayHeading measure="max-w-[16ch]" className="mt-space-4">
+          Who it&apos;s for
+        </DisplayHeading>
+      </Reveal>
 
-      <dl className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
-        {audiences.map((item) => (
+      <div className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
+        {audiences.map((item, index) => (
+          <Reveal key={item.title} staggerIndex={index} className="h-full">
           <Card
-            key={item.title}
             interactive
             padding="space-8"
             className="flex h-full flex-col"
@@ -53,8 +56,9 @@ export default function WhoItsFor(): React.JSX.Element {
               {item.body}
             </dd>
           </Card>
+          </Reveal>
         ))}
-      </dl>
+      </div>
     </Section>
   );
 }
