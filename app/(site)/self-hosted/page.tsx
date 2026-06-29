@@ -55,10 +55,10 @@ export default function SelfHostedPage(): React.JSX.Element {
     <>
       <Section>
         <div className="max-w-[60ch] text-left">
-          <h1 className="font-display text-5xl font-semibold tracking-[var(--tracking-display)] text-text md:text-6xl">
+          <h1 className="font-display text-5xl font-semibold tracking-[var(--tracking-display)] text-foreground md:text-6xl">
             Your code never leaves your infrastructure.
           </h1>
-          <p className="mt-space-6 max-w-[60ch] text-lg text-text opacity-80">
+          <p className="mt-space-6 max-w-[60ch] text-lg text-foreground opacity-80">
             Run Jericho entirely inside your own network. Local inference, local
             verification, local test execution — no outbound calls in this mode.
           </p>
@@ -71,16 +71,16 @@ export default function SelfHostedPage(): React.JSX.Element {
       </Section>
 
       <Section>
-        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
           Who it&apos;s for
         </h2>
         <dl className="mt-space-16 grid gap-space-12 md:grid-cols-3">
           {audience.map((item) => (
             <div key={item.title}>
-              <dt className="font-display text-xl text-text">
+              <dt className="font-display text-xl text-foreground">
                 {item.title}
               </dt>
-              <dd className="mt-space-2 max-w-[60ch] text-text opacity-70">
+              <dd className="mt-space-2 max-w-[60ch] text-foreground opacity-70">
                 {item.body}
               </dd>
             </div>
@@ -89,16 +89,16 @@ export default function SelfHostedPage(): React.JSX.Element {
       </Section>
 
       <Section>
-        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
           What&apos;s included
         </h2>
         <dl className="mt-space-16 grid gap-space-12 md:grid-cols-3">
           {included.map((item) => (
             <div key={item.title}>
-              <dt className="font-display text-xl text-text">
+              <dt className="font-display text-xl text-foreground">
                 {item.title}
               </dt>
-              <dd className="mt-space-2 max-w-[60ch] text-text opacity-70">
+              <dd className="mt-space-2 max-w-[60ch] text-foreground opacity-70">
                 {item.body}
               </dd>
             </div>
@@ -107,7 +107,7 @@ export default function SelfHostedPage(): React.JSX.Element {
       </Section>
 
       <Section>
-        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
           Hosted vs self-hosted — the honest version
         </h2>
         <div className="mt-space-16 grid gap-space-6 md:grid-cols-2">
@@ -116,10 +116,10 @@ export default function SelfHostedPage(): React.JSX.Element {
               key={item.mode}
               className="flex flex-col border border-raised bg-surface p-space-12"
             >
-              <h3 className="font-display text-xl text-text">
+              <h3 className="font-display text-xl text-foreground">
                 {item.mode}
               </h3>
-              <p className="mt-space-4 max-w-[60ch] text-text opacity-70">
+              <p className="mt-space-4 max-w-[60ch] text-foreground opacity-70">
                 {item.body}
               </p>
             </article>

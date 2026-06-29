@@ -18,17 +18,9 @@ type CTAProps = {
   size?: Size;
 };
 
-const base =
-  "inline-flex items-center justify-center rounded-md font-display transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
-
-const sizeClass: Record<Size, string> = {
-  default: "px-space-6 py-space-4",
-  compact: "px-space-4 py-space-2 text-sm tracking-[-0.01em]"
-};
-
 const variantClass: Record<Variant, string> = {
-  primary: "bg-accent text-accent-fg hover:bg-accent-hover",
-  ghost: "border border-border-strong text-text hover:border-text"
+  primary: "atom-btn atom-btn-primary",
+  ghost: "atom-btn atom-btn-ghost"
 };
 
 export default function CTA({
@@ -38,7 +30,13 @@ export default function CTA({
   className = "",
   size = "default"
 }: CTAProps): React.JSX.Element {
-  const classes = `${base} ${sizeClass[size]} ${variantClass[variant]} ${className}`;
+  const classes = [
+    variantClass[variant],
+    size === "compact" ? "atom-btn--compact" : "",
+    className
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   // Internal navigation uses next/link; hashes, mailto, and external use <a>.
   if (href.startsWith("/")) {

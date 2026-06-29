@@ -9,7 +9,7 @@ export default function Demo({
 }: DemoProps): React.JSX.Element {
   return (
     <Section>
-      <h2 className="font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+      <h2 className="font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
         {title}
       </h2>
 

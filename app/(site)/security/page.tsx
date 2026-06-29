@@ -29,10 +29,10 @@ export default function SecurityPage(): React.JSX.Element {
     <>
       <Section>
         <div className="max-w-[60ch] text-left">
-          <h1 className="font-display text-5xl font-semibold tracking-[var(--tracking-display)] text-text md:text-6xl">
+          <h1 className="font-display text-5xl font-semibold tracking-[var(--tracking-display)] text-foreground md:text-6xl">
             Security that knows your codebase.
           </h1>
-          <p className="mt-space-6 max-w-[60ch] text-lg text-text opacity-80">
+          <p className="mt-space-6 max-w-[60ch] text-lg text-foreground opacity-80">
             Reachability-aware scanning built into the same plugin. It tells you
             whether a vulnerable package is actually on a path your code runs — not
             just that it exists.
@@ -46,7 +46,7 @@ export default function SecurityPage(): React.JSX.Element {
       </Section>
 
       <Section>
-        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+        <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
           Reachable beats present
         </h2>
         <div className="mt-space-16 grid gap-space-6 md:grid-cols-2">
@@ -55,11 +55,11 @@ export default function SecurityPage(): React.JSX.Element {
               key={item.label}
               className="flex flex-col border border-raised bg-surface p-space-12"
             >
-              <code className="text-text opacity-60">{item.label}</code>
-              <h3 className="mt-space-4 font-display text-xl text-text">
+              <code className="text-foreground opacity-60">{item.label}</code>
+              <h3 className="mt-space-4 font-display text-xl text-foreground">
                 {item.title}
               </h3>
-              <p className="mt-space-4 max-w-[60ch] text-text opacity-70">
+              <p className="mt-space-4 max-w-[60ch] text-foreground opacity-70">
                 {item.body}
               </p>
             </article>

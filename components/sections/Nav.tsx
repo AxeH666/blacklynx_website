@@ -39,7 +39,7 @@ export default function Nav(): React.JSX.Element {
         <div className="flex items-center justify-between md:contents">
           <Link
             href="/"
-            className="font-display font-medium tracking-wide text-text md:order-1"
+            className="font-display font-medium tracking-wide text-foreground md:order-1"
           >
             JERICHO
           </Link>
@@ -63,9 +63,9 @@ export default function Nav(): React.JSX.Element {
                   href={link.href}
                   scroll
                   aria-current={active ? "page" : undefined}
-                  className={`whitespace-nowrap border-b font-display text-sm text-text transition-opacity md:text-base ${
+                  className={`whitespace-nowrap border-b font-display text-sm text-foreground transition-opacity md:text-base ${
                     active
-                      ? "border-text opacity-100"
+                      ? "border-foreground opacity-100"
                       : "border-transparent opacity-70 hover:opacity-100"
                   }`}
                 >

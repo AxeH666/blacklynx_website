@@ -31,10 +31,10 @@ export default function WaitlistPage(): React.JSX.Element {
     return (
       <div className="flex min-h-[60vh] items-center justify-center px-space-4 py-space-24">
         <div className="w-full max-w-xl border border-raised bg-surface p-space-12 text-center">
-          <h1 className="font-display text-3xl font-semibold text-text">
+          <h1 className="font-display text-3xl font-semibold text-foreground">
             Request Early Access
           </h1>
-          <p className="mt-space-4 text-text opacity-70">
+          <p className="mt-space-4 text-foreground opacity-70">
             You&apos;re on the list. We&apos;ll reach out within 48 hours.
           </p>
         </div>
@@ -45,10 +45,10 @@ export default function WaitlistPage(): React.JSX.Element {
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-space-4 py-space-24">
       <div className="w-full max-w-xl border border-raised bg-surface p-space-8">
-        <h1 className="font-display text-3xl font-semibold text-text">
+        <h1 className="font-display text-3xl font-semibold text-foreground">
           Request Early Access
         </h1>
-        <p className="mt-space-3 text-text opacity-70">
+        <p className="mt-space-3 text-foreground opacity-70">
           We&apos;re onboarding Indian engineering teams first.
         </p>
         <form className="mt-space-8 space-y-space-4" onSubmit={handleSubmit}>
@@ -58,7 +58,7 @@ export default function WaitlistPage(): React.JSX.Element {
             placeholder="Name"
             value={form.name}
             onChange={(event) => setForm({ ...form, name: event.target.value })}
-            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-text outline-none"
+            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-foreground outline-none"
           />
           <input
             required
@@ -68,7 +68,7 @@ export default function WaitlistPage(): React.JSX.Element {
             onChange={(event) =>
               setForm({ ...form, company: event.target.value })
             }
-            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-text outline-none"
+            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-foreground outline-none"
           />
           <input
             required
@@ -76,12 +76,12 @@ export default function WaitlistPage(): React.JSX.Element {
             placeholder="Email"
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
-            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-text outline-none"
+            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-foreground outline-none"
           />
           <select
             value={form.role}
             onChange={(event) => setForm({ ...form, role: event.target.value })}
-            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-text outline-none"
+            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-foreground outline-none"
           >
             <option>Engineer</option>
             <option>Lead</option>
@@ -93,7 +93,7 @@ export default function WaitlistPage(): React.JSX.Element {
             onChange={(event) =>
               setForm({ ...form, stack: event.target.value })
             }
-            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-text outline-none"
+            className="w-full border border-raised bg-canvas px-space-3 py-space-2 text-sm text-foreground outline-none"
           >
             <option>Django</option>
             <option>FastAPI</option>
