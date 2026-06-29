@@ -36,10 +36,15 @@ export default function Doorways(): React.JSX.Element {
     <Section className="pt-space-0 pb-space-16">
       <div className="grid gap-space-6 md:grid-cols-2 md:items-stretch">
         {doors.map((door) => (
-          <Link key={door.title} href={door.href} className="group flex h-full">
+          <Link
+            key={door.title}
+            href={door.href}
+            className="group flex h-full rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground/80"
+          >
             <Card
+              interactive
               padding="space-12"
-              className="flex h-full w-full flex-col transition-colors group-hover:border-border-strong"
+              className="flex h-full w-full flex-col"
               innerClassName="flex h-full flex-col"
             >
               <Eyebrow>
@@ -48,11 +53,11 @@ export default function Doorways(): React.JSX.Element {
                 {door.title}
               </Eyebrow>
 
-              <p className="mt-space-6 max-w-[28ch] text-pretty font-display text-2xl font-medium tracking-[var(--tracking-heading)] text-foreground">
+              <p className="atom-card__heading mt-space-6 max-w-[28ch] text-pretty font-display text-2xl font-medium tracking-[var(--tracking-heading)] text-[oklch(0.88_0_0)]">
                 {door.promise}
               </p>
 
-              <p className="mt-space-4 max-w-[52ch] text-pretty text-base font-normal text-text-secondary">
+              <p className="atom-card__body mt-space-4 max-w-[52ch] text-pretty text-base font-normal text-text-secondary">
                 {door.sub}
               </p>
 
@@ -60,7 +65,7 @@ export default function Doorways(): React.JSX.Element {
                 {door.label}
                 <span
                   aria-hidden="true"
-                  className="text-text-secondary transition-colors group-hover:text-foreground"
+                  className="text-text-secondary transition-colors duration-[var(--dur)] ease-[var(--ease-out-quart)] group-hover:text-foreground"
                 >
                   →
                 </span>
