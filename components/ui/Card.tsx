@@ -12,6 +12,8 @@ type CardProps = {
   innerClassName?: string;
   padding?: CardPadding;
   sheen?: boolean;
+  /** Stage 3 — levitate + letter-glow on hover (hover-capable only). */
+  interactive?: boolean;
 };
 
 export default function Card({
@@ -19,7 +21,8 @@ export default function Card({
   className = "",
   innerClassName = "",
   padding = "space-12",
-  sheen = true
+  sheen = true,
+  interactive = false
 }: CardProps): React.JSX.Element {
   const cardStyle = {
     "--card-radius": "var(--radius-lg)",
@@ -31,6 +34,7 @@ export default function Card({
       className={[
         "atom-card",
         sheen ? "atom-card--sheen" : "",
+        interactive ? "atom-card--interactive" : "",
         paddingClass[padding],
         className
       ]
@@ -43,11 +47,4 @@ export default function Card({
       </div>
     </div>
   );
-}
-
-/** Concentric inner radius: outer radius minus padding (DESIGN.LAWS D2). */
-export function cardInnerRadiusStyle(): React.CSSProperties {
-  return {
-    borderRadius: "calc(var(--card-radius) - var(--card-padding))"
-  };
 }

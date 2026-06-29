@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CTA from "@/components/ui/CTA";
-import Card, { cardInnerRadiusStyle } from "@/components/ui/Card";
+import Card from "@/components/ui/Card";
+import { cardInnerRadiusStyle } from "@/components/ui/cardInnerRadiusStyle";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
 
