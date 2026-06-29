@@ -28,7 +28,7 @@ const steps: { index: string; title: string; tech: string }[] = [
 
 export default function Pipeline(): React.JSX.Element {
   return (
-    <Section id="pipeline" className="py-space-16">
+    <Section id="pipeline" className="pt-space-0 pb-space-16">
       <Eyebrow>Debugging pipeline</Eyebrow>
       <DisplayHeading measure="max-w-[22ch]" className="mt-space-4">
         From stack trace to proven fix
