@@ -49,6 +49,7 @@ export default function ScanningLayers(): React.JSX.Element {
         {layers.map((layer) => (
           <Card
             key={layer.title}
+            interactive
             padding="space-8"
             className="flex h-full flex-col"
             innerClassName="flex h-full flex-col"
@@ -58,10 +59,10 @@ export default function ScanningLayers(): React.JSX.Element {
               <span className="px-space-2 text-text-muted">/</span>
               {layer.mono}
             </Eyebrow>
-            <dt className="mt-space-6 font-display text-xl font-medium text-foreground">
+            <dt className="atom-card__heading mt-space-6 font-display text-xl font-medium text-[oklch(0.88_0_0)]">
               {layer.title}
             </dt>
-            <dd className="mt-space-3 flex-1 text-pretty text-base font-normal text-text-secondary">
+            <dd className="atom-card__body mt-space-3 flex-1 text-pretty text-base font-normal text-text-secondary">
               {layer.body}
             </dd>
           </Card>
