@@ -28,13 +28,19 @@ export default function TrustProof(): React.JSX.Element {
         Why the answer is trustworthy
       </DisplayHeading>
 
-      <dl className="mt-space-8 grid gap-space-6 md:grid-cols-3">
+      <dl className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
         {proofPoints.map((point) => (
-          <Card key={point.title} padding="space-8">
-            <dt className="font-display text-xl font-medium text-foreground">
+          <Card
+            key={point.title}
+            interactive
+            padding="space-8"
+            className="flex h-full flex-col"
+            innerClassName="flex h-full flex-col"
+          >
+            <dt className="atom-card__heading font-display text-xl font-medium text-[oklch(0.88_0_0)]">
               {point.title}
             </dt>
-            <dd className="mt-space-3 text-base font-normal text-text-secondary">
+            <dd className="atom-card__body mt-space-3 flex-1 text-base font-normal text-text-secondary">
               {point.body}
             </dd>
           </Card>

@@ -45,6 +45,7 @@ export default function DeploymentContrast(): React.JSX.Element {
           {modes.map((mode) => (
             <Card
               key={mode.label}
+              interactive
               padding="space-12"
               className="flex h-full flex-col"
               innerClassName="flex h-full flex-col"
@@ -55,10 +56,10 @@ export default function DeploymentContrast(): React.JSX.Element {
               <code className="mt-space-2 block font-mono text-xs tracking-[0.05em] text-text-secondary">
                 {mode.path}
               </code>
-              <h3 className="mt-space-6 font-display text-xl font-medium text-foreground">
+              <h3 className="atom-card__heading mt-space-6 font-display text-xl font-medium text-[oklch(0.88_0_0)]">
                 {mode.title}
               </h3>
-              <p className="mt-space-3 flex-1 text-pretty text-base font-normal text-text-secondary">
+              <p className="atom-card__body mt-space-3 flex-1 text-pretty text-base font-normal text-text-secondary">
                 {mode.body}
               </p>
             </Card>

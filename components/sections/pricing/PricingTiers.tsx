@@ -73,6 +73,7 @@ export default function PricingTiers(): React.JSX.Element {
         {tiers.map((tier) => (
           <Card
             key={tier.name}
+            interactive
             padding="space-12"
             className="flex h-full w-full flex-col"
             innerClassName="flex h-full flex-col"
@@ -83,7 +84,7 @@ export default function PricingTiers(): React.JSX.Element {
               {tier.mono}
             </Eyebrow>
 
-            <h3 className="mt-space-6 font-display text-xl font-medium text-foreground">
+            <h3 className="atom-card__heading mt-space-6 font-display text-xl font-medium text-[oklch(0.88_0_0)]">
               {tier.name}
             </h3>
 
@@ -100,7 +101,7 @@ export default function PricingTiers(): React.JSX.Element {
               {tier.features.map((feature) => (
                 <li
                   key={feature}
-                  className="text-pretty text-base font-normal text-text-secondary"
+                  className="atom-card__body text-pretty text-base font-normal text-text-secondary"
                 >
                   {feature}
                 </li>
