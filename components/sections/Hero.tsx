@@ -2,7 +2,7 @@ import Section from "@/components/ui/Section";
 import CTA from "@/components/ui/CTA";
 import Eyebrow from "@/components/ui/Eyebrow";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
-import VoidMount from "@/components/sections/debugging/VoidMount";
+import ProofCard from "@/components/sections/ProofCard";
 
 export default function Hero(): React.JSX.Element {
   return (
@@ -40,11 +40,9 @@ export default function Hero(): React.JSX.Element {
           </p>
         </div>
 
-        {/* 3D CANVAS MOUNT POINT — the hero "lock-on" R3F scene mounts here in a
-            later pass. Intentional framed placeholder for now. */}
         {/* Offset panel top to h1 cap-line: eyebrow line box + heading top margin */}
         <div className="w-full lg:mt-[calc(1.125rem+var(--space-4))]">
-          <VoidMount label="// visualization loading" aspect="square" />
+          <ProofCard />
         </div>
       </div>
     </Section>

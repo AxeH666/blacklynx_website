@@ -21,7 +21,7 @@ export default function PricingTeaser(): React.JSX.Element {
 
         <Link
           href="/pricing"
-          className="group inline-flex shrink-0 items-center gap-space-2 self-start font-display text-sm font-medium text-foreground md:self-center"
+          className="atom-levitate group inline-flex shrink-0 items-center gap-space-2 self-start rounded-lg font-display text-sm font-medium text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground/80 md:self-center"
         >
           See pricing
           <span
