@@ -26,7 +26,7 @@ const steps: { index: string; title: string; tech: string }[] = [
 export default function HowItWorks(): React.JSX.Element {
   return (
     <Section id="how">
-      <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+      <h2 className="max-w-[40ch] font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
         From stack trace to proven fix
       </h2>
 
@@ -38,13 +38,13 @@ export default function HowItWorks(): React.JSX.Element {
               i > 0 ? "border-t border-raised" : ""
             }`}
           >
-            <span className="font-mono text-text opacity-50">
+            <span className="font-mono text-foreground opacity-50">
               {step.index}
             </span>
-            <h3 className="font-display text-xl text-text">
+            <h3 className="font-display text-xl text-foreground">
               {step.title}
             </h3>
-            <code className="text-text opacity-70 md:text-right">
+            <code className="text-foreground opacity-70 md:text-right">
               {step.tech}
             </code>
           </li>

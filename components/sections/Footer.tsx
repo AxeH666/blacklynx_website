@@ -19,7 +19,7 @@ export default function Footer(): React.JSX.Element {
         <div className="flex flex-wrap items-center justify-between gap-space-6">
           <Link
             href="/"
-            className="font-display font-medium tracking-wide text-text"
+            className="font-display font-medium tracking-wide text-foreground"
           >
             JERICHO
           </Link>
@@ -29,7 +29,7 @@ export default function Footer(): React.JSX.Element {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-display text-text opacity-70 transition-opacity hover:opacity-100"
+                className="font-display text-foreground opacity-70 transition-opacity hover:opacity-100"
               >
                 {link.label}
               </Link>
@@ -40,7 +40,7 @@ export default function Footer(): React.JSX.Element {
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                className="font-display text-text opacity-70 transition-opacity hover:opacity-100"
+                className="font-display text-foreground opacity-70 transition-opacity hover:opacity-100"
               >
                 {link.label}
               </a>
@@ -48,7 +48,7 @@ export default function Footer(): React.JSX.Element {
           </nav>
         </div>
 
-        <p className="mt-space-12 font-mono text-text opacity-50">
+        <p className="mt-space-12 font-mono text-foreground opacity-50">
           © 2026 Blackkrait Technologies
         </p>
       </div>

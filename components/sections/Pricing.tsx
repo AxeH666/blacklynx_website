@@ -37,7 +37,7 @@ const tiers: { name: string; price: string; features: string[] }[] = [
 export default function Pricing(): React.JSX.Element {
   return (
     <Section id="pricing">
-      <h2 className="font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-text md:text-4xl">
+      <h2 className="font-display text-3xl font-semibold tracking-[var(--tracking-heading)] text-foreground md:text-4xl">
         Pricing
       </h2>
 
@@ -47,16 +47,16 @@ export default function Pricing(): React.JSX.Element {
             key={tier.name}
             className="flex flex-col border border-raised bg-surface p-space-8"
           >
-            <h3 className="font-display text-xl text-text">
+            <h3 className="font-display text-xl text-foreground">
               {tier.name}
             </h3>
-            <p className="mt-space-2 font-display text-3xl text-text">
+            <p className="mt-space-2 font-display text-3xl text-foreground">
               {tier.price}
             </p>
 
             <ul className="mt-space-6 flex flex-col gap-space-2">
               {tier.features.map((feature) => (
-                <li key={feature} className="text-text opacity-70">
+                <li key={feature} className="text-foreground opacity-70">
                   {feature}
                 </li>
               ))}

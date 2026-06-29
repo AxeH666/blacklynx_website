@@ -14,7 +14,7 @@ const config: Config = {
         overlay: "var(--overlay)",
         border: "var(--border)",
         "border-strong": "var(--border-strong)",
-        text: "var(--text)",
+        foreground: "var(--foreground)",
         "text-secondary": "var(--text-secondary)",
         "text-muted": "var(--text-muted)",
         accent: "var(--accent)",

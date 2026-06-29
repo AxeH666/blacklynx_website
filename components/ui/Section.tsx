@@ -11,8 +11,10 @@ export default function Section({
   id,
   className = ""
 }: SectionProps): React.JSX.Element {
+  const sectionPadding = /\bpy-/.test(className) ? "" : "py-space-24";
+
   return (
-    <section id={id} className={`py-space-24 ${className}`}>
+    <section id={id} className={[sectionPadding, className].filter(Boolean).join(" ")}>
       <Container>{children}</Container>
     </section>
   );
