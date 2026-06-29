@@ -1,5 +1,6 @@
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
+import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
@@ -20,7 +21,8 @@ const proofPoints: { title: string; body: string }[] = [
 
 export default function TrustProof(): React.JSX.Element {
   return (
-    <Section className="py-space-16">
+    <Section className="pt-space-0 pb-space-16">
+      <Divider etched className="mb-space-12" />
       <Eyebrow>Trust model</Eyebrow>
       <DisplayHeading measure="max-w-[24ch]" className="mt-space-4">
         Why the answer is trustworthy

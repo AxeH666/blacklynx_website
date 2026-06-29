@@ -33,7 +33,7 @@ const doors: {
 // the silver primary stays rationed to the hero/nav (accent discipline).
 export default function Doorways(): React.JSX.Element {
   return (
-    <Section className="py-space-16">
+    <Section className="pt-space-0 pb-space-16">
       <div className="grid gap-space-6 md:grid-cols-2 md:items-stretch">
         {doors.map((door) => (
           <Link key={door.title} href={door.href} className="group flex h-full">

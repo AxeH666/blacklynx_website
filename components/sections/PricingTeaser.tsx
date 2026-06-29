@@ -5,17 +5,18 @@ import Eyebrow from "@/components/ui/Eyebrow";
 
 export default function PricingTeaser(): React.JSX.Element {
   return (
-    <Section className="pt-space-8 pb-space-12">
+    <Section className="pt-space-0 pb-space-12">
       <Divider etched className="mb-space-6" />
-      <div className="flex flex-col items-start gap-space-4">
+
+      <div className="flex flex-col gap-space-3">
         <Eyebrow>Pricing</Eyebrow>
-        <p className="max-w-[60ch] text-pretty text-lg font-normal text-text-secondary">
+        <p className="max-w-[50ch] text-pretty text-base font-normal text-text-secondary">
           Solo, team, or fully self-hosted. Straightforward pricing, no per-token
           billing.
         </p>
         <Link
           href="/pricing"
-          className="group mt-space-2 inline-flex items-center gap-space-2 font-display text-sm font-medium text-foreground"
+          className="group inline-flex items-center gap-space-2 font-display text-sm font-medium text-foreground"
         >
           See pricing
           <span
