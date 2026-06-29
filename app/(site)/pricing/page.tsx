@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import Pricing from "@/components/sections/Pricing";
+import PricingHero from "@/components/sections/pricing/PricingHero";
+import PricingTiers from "@/components/sections/pricing/PricingTiers";
+import PricingFinePrint from "@/components/sections/pricing/PricingFinePrint";
+import PricingClosingBand from "@/components/sections/pricing/PricingClosingBand";
 
 export const metadata: Metadata = {
   title: "Pricing — Jericho",
@@ -8,5 +11,12 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage(): React.JSX.Element {
-  return <Pricing />;
+  return (
+    <>
+      <PricingHero />
+      <PricingTiers />
+      <PricingFinePrint />
+      <PricingClosingBand />
+    </>
+  );
 }
