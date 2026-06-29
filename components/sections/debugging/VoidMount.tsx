@@ -17,7 +17,7 @@ export default function VoidMount({
         padding="space-8"
         sheen
         className={[
-          "w-full",
+          "atom-grain-surface w-full",
           aspect === "square" ? "aspect-square" : "aspect-video",
           className
         ]

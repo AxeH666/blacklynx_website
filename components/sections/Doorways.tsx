@@ -2,6 +2,7 @@ import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 
 const doors: {
   index: string;
@@ -35,9 +36,9 @@ export default function Doorways(): React.JSX.Element {
   return (
     <Section className="pt-space-0 pb-space-16">
       <div className="grid gap-space-6 md:grid-cols-2 md:items-stretch">
-        {doors.map((door) => (
+        {doors.map((door, index) => (
+          <Reveal key={door.title} staggerIndex={index} className="h-full">
           <Link
-            key={door.title}
             href={door.href}
             className="group flex h-full rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground/80"
           >
@@ -65,13 +66,14 @@ export default function Doorways(): React.JSX.Element {
                 {door.label}
                 <span
                   aria-hidden="true"
-                  className="text-text-secondary transition-colors duration-[var(--dur)] ease-[var(--ease-out-quart)] group-hover:text-foreground"
+                  className="atom-arrow-cue text-text-secondary group-hover:text-foreground"
                 >
                   →
                 </span>
               </span>
             </Card>
           </Link>
+          </Reveal>
         ))}
       </div>
     </Section>

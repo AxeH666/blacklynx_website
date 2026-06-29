@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 export default function Proof(): React.JSX.Element {
@@ -8,6 +9,7 @@ export default function Proof(): React.JSX.Element {
     <Section className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-12" />
 
+      <Reveal>
       <div className="border-l border-border pl-space-8 md:pl-space-12">
         <div className="grid gap-space-6 md:grid-cols-[minmax(0,30ch)_1fr] md:items-start md:gap-x-space-16">
           <div>
@@ -24,6 +26,7 @@ export default function Proof(): React.JSX.Element {
           </p>
         </div>
       </div>
+      </Reveal>
     </Section>
   );
 }

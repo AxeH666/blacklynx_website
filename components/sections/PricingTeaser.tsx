@@ -2,12 +2,14 @@ import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 
 export default function PricingTeaser(): React.JSX.Element {
   return (
     <Section className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-8" />
 
+      <Reveal>
       <div className="flex flex-col gap-space-4 md:flex-row md:items-center md:justify-between md:gap-space-12">
         <div className="min-w-0">
           <Eyebrow>Pricing</Eyebrow>
@@ -24,12 +26,13 @@ export default function PricingTeaser(): React.JSX.Element {
           See pricing
           <span
             aria-hidden="true"
-            className="text-text-secondary transition-colors group-hover:text-foreground"
+            className="atom-arrow-cue text-text-secondary group-hover:text-foreground"
           >
             →
           </span>
         </Link>
       </div>
+      </Reveal>
     </Section>
   );
 }

@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import CTA from "@/components/ui/CTA";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 type Tier = {
@@ -64,15 +65,17 @@ const tiers: Tier[] = [
 export default function PricingTiers(): React.JSX.Element {
   return (
     <Section id="tiers" className="pt-space-0 pb-space-16">
-      <Eyebrow>Plans</Eyebrow>
-      <DisplayHeading measure="max-w-[16ch]" className="mt-space-4">
-        Choose your tier
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Plans</Eyebrow>
+        <DisplayHeading measure="max-w-[16ch]" className="mt-space-4">
+          Choose your tier
+        </DisplayHeading>
+      </Reveal>
 
       <div className="mt-space-8 grid gap-space-6 md:grid-cols-3 md:items-stretch">
-        {tiers.map((tier) => (
+        {tiers.map((tier, index) => (
+          <Reveal key={tier.name} staggerIndex={index} className="h-full">
           <Card
-            key={tier.name}
             interactive
             padding="space-12"
             className="flex h-full w-full flex-col"
@@ -114,6 +117,7 @@ export default function PricingTiers(): React.JSX.Element {
               </CTA>
             </div>
           </Card>
+          </Reveal>
         ))}
       </div>
     </Section>

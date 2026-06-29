@@ -2,6 +2,7 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Divider from "@/components/ui/Divider";
 import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import DisplayHeading from "@/components/sections/debugging/DisplayHeading";
 
 const layers: { index: string; mono: string; title: string; body: string }[] = [
@@ -36,19 +37,21 @@ export default function ScanningLayers(): React.JSX.Element {
     <Section id="scanning" className="pt-space-0 pb-space-16">
       <Divider etched className="mb-space-12" />
 
-      <Eyebrow>Scanning layers</Eyebrow>
-      <DisplayHeading measure="max-w-[20ch]" className="mt-space-4">
-        What Jericho scans
-      </DisplayHeading>
+      <Reveal>
+        <Eyebrow>Scanning layers</Eyebrow>
+        <DisplayHeading measure="max-w-[20ch]" className="mt-space-4">
+          What Jericho scans
+        </DisplayHeading>
 
-      <p className="mt-space-6 max-w-[60ch] text-pretty text-base font-normal text-text-secondary">
-        Four scanning layers, built into the same plugin as debugging.
-      </p>
+        <p className="mt-space-6 max-w-[60ch] text-pretty text-base font-normal text-text-secondary">
+          Four scanning layers, built into the same plugin as debugging.
+        </p>
+      </Reveal>
 
-      <dl className="mt-space-8 grid gap-space-6 md:grid-cols-2 md:items-stretch">
-        {layers.map((layer) => (
+      <div className="mt-space-8 grid gap-space-6 md:grid-cols-2 md:items-stretch">
+        {layers.map((layer, index) => (
+          <Reveal key={layer.title} staggerIndex={index} className="h-full">
           <Card
-            key={layer.title}
             interactive
             padding="space-8"
             className="flex h-full flex-col"
@@ -66,8 +69,9 @@ export default function ScanningLayers(): React.JSX.Element {
               {layer.body}
             </dd>
           </Card>
+          </Reveal>
         ))}
-      </dl>
+      </div>
     </Section>
   );
 }
